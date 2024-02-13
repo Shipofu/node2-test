@@ -1,8 +1,7 @@
-language: node_js
 sudo: required
-services: 
+services:
     - docker
 
 script:
-    - docker build -t salaunm/node2 .
+    - docker build -t salaunm/node2
     - docker images salaunm/node2
