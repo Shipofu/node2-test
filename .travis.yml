@@ -1,8 +1,17 @@
 language: node_js
 sudo: required
 services:
-    - docker
+  - docker
 
 script:
-    - docker build -t salaunm/node2 .
-    - docker images salaunm/node2
+  - docker build -t salaunm/node2 .
+  - docker images salaunm/node2
+
+before_deploy:
+  - docker login -u Shipofu -p 6s^TbQk6$T*XDb
+
+deploy:
+  provider: script
+  script: docker push salaunm/node2
+  on:
+    branch: main
